@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomicfoundation/hardhat-chai-matchers");
 require("@nomiclabs/hardhat-ethers");
+require("@openzeppelin/hardhat-upgrades");
 //import dotenv library to access environment variables stored in .env file
 require("dotenv").config();
 
@@ -47,9 +48,7 @@ module.exports = {
       url: process.env.TESTNET_ENDPOINT,
       //the Hedera testnet account ECDSA private
       //the public address for the account is derived from the private key
-      accounts: [
-        process.env.TESTNET_OPERATOR_PRIVATE_KEY,
-      ],
+      accounts: [process.env.TESTNET_OPERATOR_PRIVATE_KEY],
     },
   },
 };

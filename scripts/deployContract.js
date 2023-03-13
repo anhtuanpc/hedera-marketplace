@@ -20,7 +20,7 @@
 
 const { ethers } = require("hardhat");
 
-module.exports = async () => {
+async function main() {
   //Assign the first signer, which comes from the first privateKey from our configuration in hardhat.config.js, to a wallet variable.
   let wallet = (await ethers.getSigners())[0];
 
@@ -38,4 +38,9 @@ module.exports = async () => {
   console.log(`Greeter deployed to: ${contractAddress}`);
 
   return contractAddress;
-};
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
